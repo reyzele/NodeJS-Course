@@ -6,7 +6,6 @@ const server = http.createServer((req, res) => {
   var timer = setInterval(() => {
     if (req.url === '/') {
       console.log(getTime());
-      console.log(process.memoryUsage().heapUsed);
     }
   }, timerInterval);
 
