@@ -6,7 +6,7 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "start": "node ./src/index",
-    "server": "set PORT=3000 && set INTERVAL_TIME=1000 && set STOP_INTERVAL_TIME=5000 && node ./src/server",
+    "server": "node ./src/server",
     "lint": "eslint --config=.eslintrc --fix ./src/**/*.js"
   },
   "author": "Vadim",
@@ -18,5 +18,8 @@
     "eslint-plugin-node": "^8.0.1",
     "eslint-plugin-promise": "^4.0.1",
     "eslint-plugin-standard": "^4.0.0"
+  },
+  "dependencies": {
+    "dotenv": "^6.2.0"
   }
 }

@@ -1,4 +1,5 @@
 const http = require('http');
+require('dotenv').load();
 
 const port = process.env.PORT;
 const timerInterval = process.env.INTERVAL_TIME;
