@@ -6,7 +6,7 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "start": "node ./src/index",
-    "server": "node ./src/server",
+    "server": "set PORT=3000 && set INTERVAL_TIME=1000 && set STOP_INTERVAL_TIME=5000 && node ./src/server",
     "lint": "eslint --config=.eslintrc --fix ./src/**/*.js"
   },
   "author": "Vadim",

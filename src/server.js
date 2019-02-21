@@ -1,7 +1,8 @@
 const http = require('http');
-const port = 3000;
-const timerInterval = 1000;
-const timerStop = 5000;
+
+const port = process.env.PORT;
+const timerInterval = process.env.INTERVAL_TIME;
+const timerStop = process.env.STOP_INTERVAL_TIME;
 const server = http.createServer((req, res) => {
   var timer = setInterval(() => {
     if (req.url === '/') {
