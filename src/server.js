@@ -1,24 +1,27 @@
-const http = require('http');
-require('dotenv').load();
+const http = require("http");
+require("dotenv").load();
 
 const port = process.env.PORT;
 const timerInterval = process.env.INTERVAL_TIME;
 const timerStop = process.env.STOP_INTERVAL_TIME;
 const server = http.createServer((req, res) => {
+  const timeEnd = getTime() + +timerStop;
+  let timeNow;
+
   var timer = setInterval(() => {
-    if (req.url === '/') {
-      console.log(getTime());
+    timeNow = getTime();
+
+    if (req.url === "/" && timeNow <= timeEnd) {
+      console.log(timeNow);
+    } else {
+      res.end(new Date(timeNow).toString());
+      clearInterval(timer);
     }
   }, timerInterval);
-
-  setTimeout(() => {
-    res.end(getTime());
-    clearInterval(timer);
-  }, timerStop);
 });
 
-function getTime () {
-  return new Date(Date.now()).toString();
+function getTime() {
+  return Date.now();
 }
 
 server.listen(port, () => {
